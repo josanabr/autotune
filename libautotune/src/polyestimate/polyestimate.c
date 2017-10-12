@@ -88,7 +88,7 @@ FORM *pe_calculate_formulae_from_p_json(char *dir, DATABASE *db) {
 		exit(EXIT_FAILURE);
 	}
 
-	json = load_json(in);
+	json = cJSON_Parse(fname);
 	fclose(in);
 	if (json == NULL) {
 		fprintf(stderr, "%s improperly formatted, load failed.\n", fname);
@@ -116,7 +116,7 @@ FORM *pe_calculate_formulae_from_gates_json(char *dir, DATABASE *db) {
 		exit(EXIT_FAILURE);
 	}
 
-	json = load_json(in);
+	json = cJSON_Parse(fname);
 	fclose(in);
 	if (json == NULL) {
 		fprintf(stderr, "%s improperly formatted, load failed.\n", fname);
